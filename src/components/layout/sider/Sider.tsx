@@ -9,6 +9,7 @@ import classNames from "classnames";
 import styles from './Sider.module.scss'
 import {Conversation} from "../../../types/conversation";
 import SiderHeader from "./SiderHeader";
+import {DoubleRightOutlined} from "@ant-design/icons";
 
 export default function Sider() {
 
@@ -40,7 +41,9 @@ export default function Sider() {
         </div>
       </aside>
       <div className={classNames(styles.controller, {[styles.hideController]: !isOpen})}
-           onClick={() => setIsOpen(true)}/>
+           onClick={() => setIsOpen(true)}>
+        <DoubleRightOutlined/>
+      </div>
     </div>
   </Fragment>
 
