@@ -1,9 +1,7 @@
 import {Conversation} from "../../types/conversation";
-
-import styles from './ConversationElement.module.scss';
-import {Avatar} from "antd";
 import {useContext} from "react";
 import {UserContext} from "../../contexts/UserContext";
+import ContactElement from "../contactElement/ContactElement";
 
 export default function ConversationElement({conversation}: { conversation: Conversation }) {
   const {userId} = useContext(UserContext);
@@ -14,17 +12,5 @@ export default function ConversationElement({conversation}: { conversation: Conv
 
   const currentNickname = userId === conversation.senderId ? conversation.recipientNickname : conversation.senderNickname
 
-
-  return <div className={styles.conversationElement}>
-    <Avatar
-      src={`https://joeschmoe.io/api/v1/${currentNickname}`}
-      shape="circle"
-      style={{width: "4.5em", height: "4.5em", backgroundColor: 'white'}}
-    />
-    <div className={styles.info}>
-      <span className={styles.nickname}>{currentNickname}</span>
-      <span>{renderLastMessageTimestamp()}</span>
-    </div>
-  </div>
-
+  return <ContactElement nickname={currentNickname} data={<span>{renderLastMessageTimestamp()}</span>}/>
 }

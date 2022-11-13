@@ -6,3 +6,5 @@ export interface Conversation {
   senderNickname: string
   lastMessageTimestamp: number
 }
+
+export type ConversationPostDto = Pick<Conversation, "recipientId" | "senderId">

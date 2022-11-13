@@ -1,6 +1,6 @@
 import {useQuery} from "@tanstack/react-query";
 import {UserContext} from "../../../contexts/UserContext";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {fetchConversationListByUserId} from "../../../api/ConversationApi";
 import ConversationElement from "../../conversationElement/ConversationElement";
 
@@ -11,16 +11,30 @@ import SiderHeader from "./SiderHeader";
 import {DoubleRightOutlined} from "@ant-design/icons";
 import SiderContextProvider from "./SiderContext";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 export default function Sider() {
 
   const [isOpen, setIsOpen] = useState(true);
   const {userId} = useContext(UserContext);
+  const router = useRouter()
+
+  useEffect(() => {
+    console.log(router.asPath)
+  }, [])
 
   const {data: conversations, isLoading} = useQuery({
     queryKey: ['conversations', userId],
     queryFn: ({queryKey}) => fetchConversationListByUserId(userId)
   })
+
+  useEffect(() => {
+    // close sider bar is user load website directly on a specific route, for mobile version
+    if (router.asPath !== '/') {
+      close();
+    }
+  }, []);
+
 
   function open() {
     setIsOpen(true);
@@ -47,7 +61,7 @@ export default function Sider() {
         </div>
       </aside>
       <div className={classNames(styles.controller, {[styles.hideController]: !isOpen})}
-           onClick={() => setIsOpen(true)}>
+           onClick={open}>
         <DoubleRightOutlined/>
       </div>
     </div>

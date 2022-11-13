@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Conversation} from "../types/conversation";
+import {Conversation, ConversationPostDto} from "../types/conversation";
 import {Message} from "../types/message";
 
 
@@ -8,9 +8,8 @@ export function fetchConversationListByUserId(userId: number) {
     .then((response) => response.data)
 }
 
-export function fetchConversationById(id: number) {
-  return axios.get<Conversation>(`/conversations/${id}`)
-    .then((response) => response.data)
+export function postConversation(conversation: ConversationPostDto) {
+  return axios.post(`conversations`, conversation);
 }
 
 export function fetchConversationMessageList(conversationId: number) {

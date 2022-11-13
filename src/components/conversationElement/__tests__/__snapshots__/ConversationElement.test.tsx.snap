@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConversationElement component snapshot 1`] = `
-<a
-  className="conversationElement"
+<div
+  className="contactElement"
 >
   <span
     className="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -31,5 +31,5 @@ exports[`ConversationElement component snapshot 1`] = `
       07/07/2021
     </span>
   </div>
-</a>
+</div>
 `;

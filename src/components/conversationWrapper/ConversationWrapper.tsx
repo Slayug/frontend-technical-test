@@ -25,9 +25,7 @@ export default function ConversationWrapper({conversationId}: { conversationId: 
   const {mutateAsync: sendMessage} = useMutation({
     mutationKey: queryKey,
     mutationFn: () => postMessage(message, conversationId, userId),
-    onSuccess: () => {
-      queryClient.invalidateQueries(queryKey)
-    }
+    onSuccess: () => queryClient.invalidateQueries(queryKey)
   })
 
   function onClickSend() {

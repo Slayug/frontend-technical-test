@@ -23,6 +23,22 @@
       "senderId": 4,
       "senderNickname": "Elodie",
       "lastMessageTimestamp": 1625648667
+    },
+    {
+      "recipientId": 8,
+      "senderId": 1,
+      "recipientNickname": "Pierre",
+      "senderNickname": "Thibaut",
+      "lastMessageTimestamp": 1668348036812,
+      "id": 4
+    },
+    {
+      "recipientId": 1,
+      "senderId": 1,
+      "recipientNickname": "Thibaut",
+      "senderNickname": "Thibaut",
+      "lastMessageTimestamp": 1668348798825,
+      "id": 5
     }
   ],
   "messages": [
@@ -193,6 +209,13 @@
       "timestamp": 1668338314531,
       "conversationId": "1",
       "id": 24
+    },
+    {
+      "body": "Hiii",
+      "authorId": 1,
+      "timestamp": 1668348044946,
+      "conversationId": "4",
+      "id": 25
     }
   ],
   "users": [
@@ -215,6 +238,38 @@
       "id": 4,
       "nickname": "Elodie",
       "token": "xxxx"
+    },
+    {
+      "id": 5,
+      "nickname": "Jim"
+    },
+    {
+      "id": 6,
+      "nickname": "Ondine"
+    },
+    {
+      "id": 7,
+      "nickname": "Lana"
+    },
+    {
+      "id": 8,
+      "nickname": "Pierre"
+    },
+    {
+      "id": 9,
+      "nickname": "Janine"
+    },
+    {
+      "id": 10,
+      "nickname": "Corentin"
+    },
+    {
+      "id": 11,
+      "nickname": "Lilly"
+    },
+    {
+      "id": 12,
+      "nickname": "Chris"
     }
   ]
 }

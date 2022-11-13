@@ -32,7 +32,7 @@ export default function SiderHeader({userId}: { userId: number }) {
     </div>
 
     <div>
-      <Link onClick={close} href="/contact">
+      <Link onClick={close} href="/contacts">
         <PlusOutlined/>
       </Link>
     </div>
