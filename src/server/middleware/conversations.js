@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
   if (/conversations/.test(req.url) && req.method === 'GET') {
     const userId = req.query?.senderId
     if (userId) {
+      db.read()
       const conversations = db.get('conversations').value();
       const result = conversations.filter(
         conv => conv.senderId == userId || conv.recipientId == userId
