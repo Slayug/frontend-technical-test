@@ -9,6 +9,9 @@ const Home: FC = () => {
 
   return (
     <div className={styles.container}>
+      <h1 className="text-3xl font-bold underline text-lime-400">
+        Hello world!
+      </h1>
       <Head>
         <title>Frontend Technical test - Leboncoin</title>
         <meta name="description" content="Frontend exercise for developpers who want to join us on leboncoin.fr"></meta>
