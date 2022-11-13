@@ -1,6 +1,29 @@
 .conversationElement {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: white;
+
+  border-bottom: 1px solid #E2E2E250;
+
+  padding: 15px 5px 5px 15px;
+
+  &:hover {
+    background-color: #FFFFFF30;
+    color: white;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+
+    .nickname {
+      font-size: 2.4em;
+      font-weight: 500;
+      font-family: Inter, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+  }
 
 
-  padding: 5px;
-  border-bottom: 1px solid white;
 }

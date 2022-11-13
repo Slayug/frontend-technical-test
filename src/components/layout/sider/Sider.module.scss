@@ -49,12 +49,13 @@
     width: 100vw;
   }
 
+  .conversationList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 
-  .conversation {
-    cursor: pointer;
-
-    &:hover {
-      background-color: #FFFFFF50;
+    .conversation {
+      cursor: pointer;
     }
   }
 
@@ -62,4 +63,16 @@
 
 .hide {
   left: -100vw;
+}
+
+.header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+
+  font-size: 1.2em;
+  color: white;
+  background-color: #5e2ca5;
 }

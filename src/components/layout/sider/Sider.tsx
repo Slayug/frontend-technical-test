@@ -8,6 +8,7 @@ import classNames from "classnames";
 
 import styles from './Sider.module.scss'
 import {Conversation} from "../../../types/conversation";
+import SiderHeader from "./SiderHeader";
 
 export default function Sider() {
 
@@ -24,18 +25,19 @@ export default function Sider() {
     setIsOpen(false);
   }
 
-
   return <Fragment>
     <div className={styles.asideWrapper}>
       <aside className={classNames(styles.sider, "h-screen", "bg-violet-900", {[styles.hide]: !isOpen})}>
-        <div className="center text-white">CONV</div>
-        {
-          conversations && conversations.map((conversation) =>
-            <div className={styles.conversation} key={conversation.id} onClick={() => selectConversation(conversation)}>
-              <ConversationElement conversation={conversation}/>
-            </div>
-          )
-        }
+        <SiderHeader userId={userId}/>
+        <div className={styles.conversationList}>
+          {
+            conversations && conversations.map((conversation) =>
+              <div className={styles.conversation} key={conversation.id} onClick={() => selectConversation(conversation)}>
+                <ConversationElement conversation={conversation}/>
+              </div>
+            )
+          }
+        </div>
       </aside>
       <div className={classNames(styles.controller, {[styles.hideController]: !isOpen})}
            onClick={() => setIsOpen(true)}/>
