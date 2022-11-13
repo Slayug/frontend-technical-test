@@ -4,12 +4,23 @@ const db = require(`${path.dirname(__filename)}/../db.json`)
 // Need this middleware to catch some requests
 // and return both conversations where userId is sender or recipient
 module.exports = (req, res, next) => {
-  if (req.url.startsWith("conversations/") && req.method === 'GET') {
+  if (/conversations/.test(req.url) && req.method === 'GET') {
+    const conversationId = req.query?.id
+    if (conversationId) {
+      const result = db?.conversations?.filter((conv) => conv.id == conversationId)
+      res.status(200).json(result);
+      return
+    }
+
+    console.log('req.query', req.query)
     const userId = req.query?.senderId
+    console.log('userId', userId)
+    console.log(db.conversations)
     const result = db?.conversations?.filter(
       conv => conv.senderId == userId || conv.recipientId == userId
     )
 
+    console.log('result', result)
     res.status(200).json(result)
     return
   } else if (/conversations/.test(req.url) && req.method === 'POST') {
