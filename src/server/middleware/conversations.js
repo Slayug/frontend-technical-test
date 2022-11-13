@@ -12,6 +12,9 @@ module.exports = (req, res, next) => {
 
     res.status(200).json(result)
     return
+  } else if (/messages/.test(req.url) && req.method === 'POST') {
+    req.body.timestamp = Date.now()
+    req.body.conversationId = req.query.conversationId
   }
 
   next()

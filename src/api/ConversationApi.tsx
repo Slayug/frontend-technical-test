@@ -17,3 +17,7 @@ export function fetchConversationMessageList(conversationId: number) {
   return axios.get<Message[]>(`/messages?conversationId=${conversationId}`)
     .then((response) => response.data)
 }
+
+export function postMessage(message: string, conversationId: number, userId) {
+  return axios.post(`/messages/${conversationId}`, {body: message, authorId: userId})
+}
