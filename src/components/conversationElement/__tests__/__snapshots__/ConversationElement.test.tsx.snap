@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationElement component snapshot 1`] = `
+<a
+  className="conversationElement"
+>
+  <span
+    className="ant-avatar ant-avatar-circle ant-avatar-image"
+    style={
+      {
+        "backgroundColor": "white",
+        "height": "4.5em",
+        "width": "4.5em",
+      }
+    }
+  >
+    <img
+      onError={[Function]}
+      src="https://joeschmoe.io/api/v1/Thibaut"
+    />
+  </span>
+  <div
+    className="info"
+  >
+    <span
+      className="nickname"
+    >
+      Thibaut
+    </span>
+    <span>
+      06/05/2021
+    </span>
+  </div>
+</a>
+`;
