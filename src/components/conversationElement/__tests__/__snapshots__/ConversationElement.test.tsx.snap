@@ -16,7 +16,7 @@ exports[`ConversationElement component snapshot 1`] = `
   >
     <img
       onError={[Function]}
-      src="https://joeschmoe.io/api/v1/Thibaut"
+      src="https://joeschmoe.io/api/v1/Elodie"
     />
   </span>
   <div
@@ -25,10 +25,10 @@ exports[`ConversationElement component snapshot 1`] = `
     <span
       className="nickname"
     >
-      Thibaut
+      Elodie
     </span>
     <span>
-      06/05/2021
+      07/07/2021
     </span>
   </div>
 </a>
