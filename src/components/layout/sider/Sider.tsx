@@ -21,7 +21,10 @@ export default function Sider() {
 
   const {data: conversations, isLoading} = useQuery({
     queryKey: ['conversations', userId],
-    queryFn: ({queryKey}) => fetchConversationListByUserId(userId)
+    queryFn: ({queryKey}) => fetchConversationListByUserId(userId),
+    refetchInterval: 2500,
+    refetchIntervalInBackground: true
+
   })
 
   useEffect(() => {
