@@ -1,41 +1,47 @@
 import {useQuery} from "@tanstack/react-query";
 import {UserContext} from "../../../contexts/UserContext";
-import {Fragment, useContext, useState} from "react";
+import {useContext, useState} from "react";
 import {fetchConversationListByUserId} from "../../../api/ConversationApi";
 import ConversationElement from "../../conversationElement/ConversationElement";
 
 import classNames from "classnames";
 
 import styles from './Sider.module.scss'
-import {Conversation} from "../../../types/conversation";
 import SiderHeader from "./SiderHeader";
 import {DoubleRightOutlined} from "@ant-design/icons";
+import SiderContextProvider from "./SiderContext";
+import Link from "next/link";
 
 export default function Sider() {
 
   const [isOpen, setIsOpen] = useState(true);
-  const {userId, setCurrentConversationId} = useContext(UserContext);
+  const {userId} = useContext(UserContext);
 
   const {data: conversations, isLoading} = useQuery({
     queryKey: ['conversations', userId],
     queryFn: ({queryKey}) => fetchConversationListByUserId(userId)
   })
 
-  function selectConversation(conversation: Conversation) {
-    setCurrentConversationId(conversation.id)
-    setIsOpen(false);
+  function open() {
+    setIsOpen(true);
   }
 
-  return <Fragment>
+  function close() {
+    setIsOpen(false)
+  }
+
+  return <SiderContextProvider open={open} close={close}>
     <div className={styles.asideWrapper}>
       <aside className={classNames(styles.sider, "h-screen", "bg-violet-900", {[styles.hide]: !isOpen})}>
         <SiderHeader userId={userId}/>
         <div className={styles.conversationList}>
           {
             conversations && conversations.map((conversation) =>
-              <div className={styles.conversation} key={conversation.id} onClick={() => selectConversation(conversation)}>
+              <Link href={`/conversation/${conversation.id}`}
+                    className={styles.conversation} key={conversation.id}
+                    onClick={close}>
                 <ConversationElement conversation={conversation}/>
-              </div>
+              </Link>
             )
           }
         </div>
@@ -45,6 +51,5 @@ export default function Sider() {
         <DoubleRightOutlined/>
       </div>
     </div>
-  </Fragment>
-
+  </SiderContextProvider>
 }

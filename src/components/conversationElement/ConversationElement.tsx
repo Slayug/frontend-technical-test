@@ -15,7 +15,7 @@ export default function ConversationElement({conversation}: { conversation: Conv
   const currentNickname = userId === conversation.senderId ? conversation.recipientNickname : conversation.senderNickname
 
 
-  return <a className={styles.conversationElement}>
+  return <div className={styles.conversationElement}>
     <Avatar
       src={`https://joeschmoe.io/api/v1/${currentNickname}`}
       shape="circle"
@@ -25,6 +25,6 @@ export default function ConversationElement({conversation}: { conversation: Conv
       <span className={styles.nickname}>{currentNickname}</span>
       <span>{renderLastMessageTimestamp()}</span>
     </div>
-  </a>
+  </div>
 
 }

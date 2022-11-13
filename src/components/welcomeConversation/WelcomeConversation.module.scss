@@ -1,0 +1,17 @@
+
+.welcomeConversation {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  font-size: 1.5em;
+
+  color: white;
+
+  svg {
+    font-size: 5.5em;
+  }
+}

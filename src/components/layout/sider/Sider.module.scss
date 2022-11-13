@@ -76,11 +76,22 @@
 .header {
   padding: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
 
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+  }
 
   font-size: 1.2em;
   color: white;
   background-color: #5e2ca5;
+
+  svg {
+    font-size: 1.8em;
+    margin-right: 15px;
+  }
 }
