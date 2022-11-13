@@ -2,43 +2,53 @@ Hi,
 
 I have started by cloning the repository on my computer, then I read the instructions and what was already setup.
 
-Then I've been thinking about the ui, the layout and how to organise the conversion list with the messages.
+Then I've been thinking about the UI, the layout and how to organise the conversion list with the messages.
 I wanted something similar to the WhatsApp web version:
 ![WhatsApp web version](https://thehackernews.com/images/-EUxmg4d_AZc/VMANFw5h2oI/AAAAAAAAhiM/5XhiQpJp3rk/w0/Whatsapp-web-app.png)
+
+It means a left side-bar and the current conversation on the right.
 
 ## Setup
 
 I set up in first place different libraries to help me during the code process:
 
+1. classnames
+2. sass
+3. antd
+4. axios
+5. react-query
+
 ## Layout
 
-My first problematic was to adapt the sider bar (conversations container, left part) with the current conversation (
+My first problematic was to adapt the side-bar (conversations container, left part) with the current conversation (
 right panel).
 
-I have started to create both component in mobile version, I couldn't use the router for this version.
-For instance if I used the router ([Next version](https://nextjs.org/docs/routing/introduction#index-routes)) I had to
-create two page component files and handle when the user is on mobile: just render the conversation list first, then
-when user select one, redirect him/her on the selected conversation, it means two pages.
-And for the web behavior I had to display both in the same time.
-
-I decided to create only one page and hide the sider when the screen is large enough to render both component (sider &
-conversation) with a simple animation. It was easier to implement because there is only one solution to implement
-without handling if the router must be involved or not.
+I have started to create both component in mobile version, I didn't use the router for the first version, but used it
+later.
+At the beginning I just used the default page to display the current conversation.
+With the userContext to share the current conversation selected, then the `conversationWrapper` display from it.
 
 ## Tests
 
-I created four tests to show different test I could create with my components for the `ConversationElement` component.
+I created four tests to show different tests I could create with my components, see the `ConversationElement` component.
 
 ## Create a new conversation
 
 During the process of creating the new conversation, I decided to create a new route `pages/contact` with
-a random list of contact, where user will be able to create a new conversation, selecting one.
-In same time I refactored the conversation system by adding the current one to the router instead of the context.
+a random list of contact, where user will be able to create a new conversation.
+In same time I refactored the conversation system by adding the conversation page to the router to replace the system
+context explained previously.
 
-TODO
+I updated the server to support the creation of a conversation.
+I had troubles with the server not reading the last entries in the database, when creating a new conversation
+between two users.
+I tried to use:
 
-- [x] Add at least one/two unit test
-- [x] Add a snapshot test
-- [x] Add a smoke test
+```js
+const dbPath = `${path.dirname(__filename)}/../db.json`
+const router = jsonServer.router(dbPath)
+```
+
+and I finally make it works with `db.read()`, first system was not able to fetch new data from json file.
 
 
