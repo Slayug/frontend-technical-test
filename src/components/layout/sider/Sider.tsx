@@ -1,13 +1,13 @@
 import {useQuery} from "@tanstack/react-query";
-import {UserContext} from "../../contexts/UserContext";
+import {UserContext} from "../../../contexts/UserContext";
 import {Fragment, useContext, useState} from "react";
-import {fetchConversationListByUserId} from "../../api/ConversationApi";
-import ConversationElement from "../conversationElement/ConversationElement";
+import {fetchConversationListByUserId} from "../../../api/ConversationApi";
+import ConversationElement from "../../conversationElement/ConversationElement";
 
 import classNames from "classnames";
 
 import styles from './Sider.module.scss'
-import {Conversation} from "../../types/conversation";
+import {Conversation} from "../../../types/conversation";
 
 export default function Sider() {
 
