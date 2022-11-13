@@ -1,11 +1,11 @@
-import {useContext, useState} from "react";
+import {Fragment, useContext, useState} from "react";
 import {UserContext} from "../../contexts/UserContext";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import {fetchConversationMessageList, postMessage} from "../../api/ConversationApi";
 import MessageElement from "../message/MessageElement";
 
 import styles from './ConversationWrapper.module.scss'
-import {SendOutlined} from "@ant-design/icons";
+import {AliwangwangOutlined, SendOutlined} from "@ant-design/icons";
 
 export default function ConversationWrapper() {
   const [message, setMessage] = useState("");
@@ -13,7 +13,7 @@ export default function ConversationWrapper() {
   const queryClient = useQueryClient()
 
   const queryKey = ['conversation', 'messages', currentConversationId];
-  const {data: messages, isLoading} = useQuery({
+  const {data: messages, isLoading, isFetching} = useQuery({
     queryKey,
     queryFn: () => fetchConversationMessageList(currentConversationId),
     enabled: currentConversationId !== undefined,
@@ -37,15 +37,19 @@ export default function ConversationWrapper() {
 
 
   return <div className={styles.conversationWrapper}>
-    {isLoading && <p>Loading</p>}
+    <div className={styles.transition}>
+      {isFetching && isLoading && <p>Loading</p>}
+      {!messages && !isFetching && <Fragment><AliwangwangOutlined/><p>Select a conversation ⬅️</p></Fragment>}
+    </div>
     <div className={styles.messages}>
       {messages && messages.map((message) => {
         return <MessageElement key={message.id} message={message}/>
       })}
     </div>
     <div className={styles.input}>
-      <input value={message} onChange={(event) => setMessage(event.target.value)} placeholder="Type a message.."/>
-      <SendOutlined onClick={onClickSend}/>
+      <input disabled={!messages} value={message} onChange={(event) => setMessage(event.target.value)}
+             placeholder="Type a message.."/>
+      <SendOutlined disabled={!messages} onClick={onClickSend}/>
     </div>
   </div>
 }

@@ -5,6 +5,21 @@
   display: flex;
   flex-direction: column;
 
+  .transition {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    color: white;
+
+    svg {
+      font-size: 3.5em;
+    }
+  }
+
   .messages {
     flex: 1;
   }
