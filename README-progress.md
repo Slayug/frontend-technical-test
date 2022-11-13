@@ -1,5 +1,8 @@
 Hi,
 
+_If you need to change the current user, you may click on the avatar on the top left of the screen._
+About the time spend on the project, it's around 8 hours.
+
 I have started by cloning the repository on my computer, then I read the instructions and what was already setup.
 
 Then I've been thinking about the UI, the layout and how to organise the conversion list with the messages.
@@ -14,6 +17,7 @@ I set up in first place different libraries to help me during the code process:
 
 1. classnames
 2. sass
+3. tailwind css (finally not used much)
 3. antd
 4. axios
 5. react-query
@@ -23,9 +27,9 @@ I set up in first place different libraries to help me during the code process:
 My first problematic was to adapt the side-bar (conversations container, left part) with the current conversation (
 right panel).
 
-I have started to create both component in mobile version, I didn't use the router for the first version, but used it
+I have started to create both component on mobile version, I didn't use the router for the first version, but used it
 later.
-At the beginning I just used the default page to display the current conversation.
+At the beginning I just used the default page to display the current conversation with an animation.
 With the userContext to share the current conversation selected, then the `conversationWrapper` display from it.
 
 ## Tests
@@ -50,5 +54,15 @@ const router = jsonServer.router(dbPath)
 ```
 
 and I finally make it works with `db.read()`, first system was not able to fetch new data from json file.
+
+## Style
+
+I used my basic colors for the layout and help me to make the difference between the components, it could be improved,
+but I cannot spend more time on it.
+
+## Previews
+
+![preview](./sketches/preview.png)
+![preview](./sketches/preview-conversation.png)
 
 
