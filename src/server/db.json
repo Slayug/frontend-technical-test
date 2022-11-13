@@ -25,20 +25,68 @@
       "lastMessageTimestamp": 1625648667
     },
     {
+      "recipientId": 1,
+      "senderId": 6,
+      "recipientNickname": "Thibaut",
+      "senderNickname": "Ondine",
+      "lastMessageTimestamp": 1668349870412,
+      "id": 4
+    },
+    {
+      "recipientId": 8,
+      "senderId": 6,
+      "recipientNickname": "Pierre",
+      "senderNickname": "Ondine",
+      "lastMessageTimestamp": 1668349933304,
+      "id": 5
+    },
+    {
+      "recipientId": 10,
+      "senderId": 6,
+      "recipientNickname": "Corentin",
+      "senderNickname": "Ondine",
+      "lastMessageTimestamp": 1668349948851,
+      "id": 6
+    },
+    {
+      "recipientId": 9,
+      "senderId": 6,
+      "recipientNickname": "Janine",
+      "senderNickname": "Ondine",
+      "lastMessageTimestamp": 1668350152410,
+      "id": 7
+    },
+    {
+      "recipientId": 5,
+      "senderId": 1,
+      "recipientNickname": "Jim",
+      "senderNickname": "Thibaut",
+      "lastMessageTimestamp": 1668352391892,
+      "id": 8
+    },
+    {
       "recipientId": 8,
       "senderId": 1,
       "recipientNickname": "Pierre",
       "senderNickname": "Thibaut",
-      "lastMessageTimestamp": 1668348036812,
-      "id": 4
+      "lastMessageTimestamp": 1668352396582,
+      "id": 9
     },
     {
-      "recipientId": 1,
+      "recipientId": 9,
       "senderId": 1,
-      "recipientNickname": "Thibaut",
+      "recipientNickname": "Janine",
       "senderNickname": "Thibaut",
-      "lastMessageTimestamp": 1668348798825,
-      "id": 5
+      "lastMessageTimestamp": 1668356077692,
+      "id": 10
+    },
+    {
+      "recipientId": 11,
+      "senderId": 1,
+      "recipientNickname": "Lilly",
+      "senderNickname": "Thibaut",
+      "lastMessageTimestamp": 1668356092422,
+      "id": 11
     }
   ],
   "messages": [
@@ -71,151 +119,32 @@
       "body": "Bonjour c'est le premier message de la seconde conversation"
     },
     {
-      "body": "",
-      "authorId": 1,
-      "timestamp": 1668294461905,
-      "conversationId": "undefined",
+      "body": "hiii",
+      "authorId": 6,
+      "timestamp": 1668349788662,
+      "conversationId": "5",
       "id": 5
     },
     {
-      "body": "",
-      "authorId": 1,
-      "timestamp": 1668294462270,
-      "conversationId": "undefined",
+      "body": "hiii",
+      "authorId": 6,
+      "timestamp": 1668349880418,
+      "conversationId": "4",
       "id": 6
     },
     {
-      "body": "",
-      "authorId": 1,
-      "timestamp": 1668294462460,
-      "conversationId": "undefined",
+      "body": "hii",
+      "authorId": 6,
+      "timestamp": 1668350158022,
+      "conversationId": "7",
       "id": 7
     },
     {
-      "body": "",
+      "body": "coucou Janine",
       "authorId": 1,
-      "timestamp": 1668294462656,
-      "conversationId": "undefined",
+      "timestamp": 1668356088045,
+      "conversationId": "10",
       "id": 8
-    },
-    {
-      "body": "",
-      "authorId": 1,
-      "timestamp": 1668294470614,
-      "conversationId": "undefined",
-      "id": 9
-    },
-    {
-      "body": "Bonjour",
-      "authorId": 1,
-      "timestamp": 1668294614615,
-      "conversationId": "1",
-      "id": 10
-    },
-    {
-      "body": "Hello",
-      "authorId": 1,
-      "timestamp": 1668298286839,
-      "conversationId": "1",
-      "id": 11
-    },
-    {
-      "body": "hiiii",
-      "authorId": 1,
-      "timestamp": 1668298711081,
-      "conversationId": "1",
-      "id": 12
-    },
-    {
-      "body": "Allo",
-      "authorId": 1,
-      "timestamp": 1668298717622,
-      "conversationId": "1",
-      "id": 13
-    },
-    {
-      "body": "Allo",
-      "authorId": 1,
-      "timestamp": 1668298721140,
-      "conversationId": "1",
-      "id": 14
-    },
-    {
-      "body": "Allo",
-      "authorId": 1,
-      "timestamp": 1668298724973,
-      "conversationId": "1",
-      "id": 15
-    },
-    {
-      "body": "Allo",
-      "authorId": 1,
-      "timestamp": 1668298726030,
-      "conversationId": "1",
-      "id": 16
-    },
-    {
-      "body": "Allo",
-      "authorId": 1,
-      "timestamp": 1668298728745,
-      "conversationId": "1",
-      "id": 17
-    },
-    {
-      "body": "bonjour",
-      "authorId": 1,
-      "timestamp": 1668298822771,
-      "conversationId": "1",
-      "id": 18
-    },
-    {
-      "body": "j'aime les chats",
-      "authorId": 1,
-      "timestamp": 1668298826947,
-      "conversationId": "1",
-      "id": 19
-    },
-    {
-      "body": "Second message, de la seconde conversation",
-      "authorId": 1,
-      "timestamp": 1668299132703,
-      "conversationId": "2",
-      "id": 20
-    },
-    {
-      "body": "Hello",
-      "authorId": 1,
-      "timestamp": 1668299761418,
-      "conversationId": "2",
-      "id": 21
-    },
-    {
-      "body": "YOUHOU",
-      "authorId": 1,
-      "timestamp": 1668299764393,
-      "conversationId": "2",
-      "id": 22
-    },
-    {
-      "body": "oOULA",
-      "authorId": 1,
-      "timestamp": 1668299887499,
-      "conversationId": "1",
-      "id": 23
-    },
-    {
-      "body": "Hiii",
-      "authorId": 1,
-      "timestamp": 1668338314531,
-      "conversationId": "1",
-      "id": 24
-    },
-    {
-      "body": "Hiii",
-      "authorId": 1,
-      "timestamp": 1668348044946,
-      "conversationId": "4",
-      "id": 25
     }
   ],
   "users": [

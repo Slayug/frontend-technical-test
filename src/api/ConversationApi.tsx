@@ -8,6 +8,11 @@ export function fetchConversationListByUserId(userId: number) {
     .then((response) => response.data)
 }
 
+export function fetchConversationById(id: number) {
+  return axios.get<Conversation[]>(`/conversation/${id}`)
+    .then((response) => response.data)
+}
+
 export function postConversation(conversation: ConversationPostDto) {
   return axios.post(`conversations`, conversation);
 }

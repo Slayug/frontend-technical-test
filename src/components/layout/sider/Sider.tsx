@@ -19,10 +19,6 @@ export default function Sider() {
   const {userId} = useContext(UserContext);
   const router = useRouter()
 
-  useEffect(() => {
-    console.log(router.asPath)
-  }, [])
-
   const {data: conversations, isLoading} = useQuery({
     queryKey: ['conversations', userId],
     queryFn: ({queryKey}) => fetchConversationListByUserId(userId)

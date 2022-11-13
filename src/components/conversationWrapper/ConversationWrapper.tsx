@@ -6,25 +6,26 @@ import MessageElement from "../message/MessageElement";
 
 import styles from './ConversationWrapper.module.scss'
 import {SendOutlined} from "@ant-design/icons";
-import {Input, Spin} from "antd";
+import {Avatar, Input, Spin} from "antd";
+import {Conversation} from "../../types/conversation";
+import {getRemoteUserNickName} from "../../utils/conversationUtils";
 
-export default function ConversationWrapper({conversationId}: { conversationId: number }) {
+export default function ConversationWrapper({conversation}: { conversation: Conversation }) {
   const [message, setMessage] = useState("");
   const {userId} = useContext(UserContext);
   const queryClient = useQueryClient()
 
-  const queryKey = ['conversation', 'messages', conversationId];
+  const queryKey = ['conversation', 'messages', conversation.id];
   const {data: messages, isLoading, isFetching, isInitialLoading} = useQuery({
     queryKey,
-    queryFn: () => fetchConversationMessageList(conversationId),
-    enabled: conversationId !== undefined,
+    queryFn: () => fetchConversationMessageList(conversation.id),
     refetchInterval: 1000,
     refetchIntervalInBackground: true,
   });
 
   const {mutateAsync: sendMessage} = useMutation({
     mutationKey: queryKey,
-    mutationFn: () => postMessage(message, conversationId, userId),
+    mutationFn: () => postMessage(message, conversation.id, userId),
     onSuccess: () => queryClient.invalidateQueries(queryKey)
   })
 
@@ -34,8 +35,17 @@ export default function ConversationWrapper({conversationId}: { conversationId: 
     });
   }
 
+  const remoteNickname = getRemoteUserNickName(userId, conversation);
 
   return <div className={styles.conversationWrapper}>
+    <div className={styles.header}>
+      <Avatar
+        src={`https://joeschmoe.io/api/v1/${remoteNickname}`}
+        shape="circle"
+        style={{width: "2.5em", height: "2.5em", backgroundColor: 'white'}}
+      />
+      <p>{remoteNickname}</p>
+    </div>
     <div className={styles.messages}>
       <div className={styles.loading}>
         {isInitialLoading && isFetching && isLoading && <Spin/>}
