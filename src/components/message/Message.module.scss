@@ -1,5 +1,15 @@
 
 .message {
-  background-color: #9eebcf;
-  border-radius: 50%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 7px;
+
+  margin-bottom: 5px;
+  align-self: start;
+  max-width: 60%;
+}
+
+.me {
+  background-color: #23d490;
+  align-self: end;
 }
