@@ -6,6 +6,7 @@ import MessageElement from "../message/MessageElement";
 
 import styles from './ConversationWrapper.module.scss'
 import {AliwangwangOutlined, SendOutlined} from "@ant-design/icons";
+import {Input} from "antd";
 
 export default function ConversationWrapper() {
   const [message, setMessage] = useState("");
@@ -47,8 +48,13 @@ export default function ConversationWrapper() {
       })}
     </div>
     <div className={styles.input}>
-      <input disabled={!messages} value={message} onChange={(event) => setMessage(event.target.value)}
-             placeholder="Type a message.."/>
+      <Input
+        onPressEnter={onClickSend}
+        disabled={!messages}
+        value={message}
+        onChange={(event) => setMessage(event.target.value)}
+        placeholder="Type a message.."
+      />
       <SendOutlined disabled={!messages} onClick={onClickSend}/>
     </div>
   </div>
