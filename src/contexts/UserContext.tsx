@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 
 export type UserContextProps = {
-  userId: number
+  userId: number,
+  currentConversationId: number,
+  setCurrentConversationId: (id: number) => void
 }
 
 export const UserContext = React.createContext<Partial<UserContextProps>>({})
@@ -13,11 +15,14 @@ export default function UserContextProvider({
   children: JSX.Element;
   currentUserId: number
 }) {
+  const [currentConversationId, setCurrentConversationId] = useState(undefined);
 
   return <UserContext.Provider value={{
-      userId: currentUserId
-    }}>
-    { children }
+    userId: currentUserId,
+    setCurrentConversationId,
+    currentConversationId,
+  }}>
+    {children}
   </UserContext.Provider>
 
 }
