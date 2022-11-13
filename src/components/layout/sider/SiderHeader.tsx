@@ -7,9 +7,11 @@ import {Fragment, useContext} from "react";
 import {PlusOutlined} from "@ant-design/icons";
 import Link from "next/link";
 import {SiderContext} from "./SiderContext";
+import {UserContext} from "../../../contexts/UserContext";
 
 export default function SiderHeader({userId}: { userId: number }) {
 
+  const {setUserId} = useContext(UserContext);
   const {close} = useContext(SiderContext);
 
   const {data: userInfo} = useQuery({
@@ -22,6 +24,7 @@ export default function SiderHeader({userId}: { userId: number }) {
       {userInfo &&
         <Fragment>
           <Avatar
+            onClick={() => setUserId(userId + 1)}
             src={`https://joeschmoe.io/api/v1/${userInfo.nickname}`}
             shape="circle"
             style={{width: "3.5em", height: "3.5em", backgroundColor: 'white'}}

@@ -18,6 +18,7 @@ export default function Conversation() {
 
   return <Fragment>
     {isLoading && <Spin/>}
-    {conversation && <ConversationWrapper key={conversation[0].id} conversation={conversation[0]}/>}
+    {conversation && conversation[0] ? <ConversationWrapper key={conversation[0].id} conversation={conversation[0]}/> :
+      <p>Conversation not found</p>}
   </Fragment>
 }
