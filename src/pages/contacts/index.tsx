@@ -38,6 +38,9 @@ export default function Contact() {
   }
 
   return <div className={styles.contacts}>
+    <div className={styles.info}>
+      <p>Select a contact to start a conversation..</p>
+    </div>
     {
       contacts && contacts.map((contact) => {
         return <div key={contact.id} className={styles.contact} onClick={() => goToContactConversation(contact.id)}>
