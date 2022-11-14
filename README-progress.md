@@ -36,6 +36,11 @@ With the userContext to share the current conversation selected, then the `conve
 
 I created four tests to show different tests I could create with my components, see the `ConversationElement` component.
 
+The actual test step on CI does not work because I have a snapshot test who does not render the same date on my
+computer.
+I could extract the way the date is created within a function and mock it with `jest.mock()`.
+I will be sure to have always the same format for the date in the test step.
+
 ## Create a new conversation
 
 During the process of creating the new conversation, I decided to create a new route `pages/contact` with
